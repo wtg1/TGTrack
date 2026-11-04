@@ -1,0 +1,20 @@
+# Validated on Python 3.11, PyTorch 2.8.0 and CUDA 12.8.
+numpy==2.2.6
+Pillow==11.3.0
+PyYAML==6.0.2
+easydict==1.13
+opencv-python==4.12.0.88
+pandas==2.3.2
+scipy==1.16.1
+timm==1.0.19
+pycocotools==2.0.10
+jpeg4py==0.1.4
+lmdb==1.7.3
+tensorboard==2.20.0
+tqdm==4.67.1
+matplotlib==3.10.5
+scikit-image==0.25.2
+ftfy
+regex
+# OpenAI CLIP supplies the language tokenizer and encoder.
+clip @ git+https://github.com/openai/CLIP.git@a1d071733d7111c9c014f024669f959182114e33

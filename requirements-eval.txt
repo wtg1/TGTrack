@@ -1,0 +1,4 @@
+-r requirements.txt
+# Reference VOT/TraX versions used by the workspace integration checks.
+vot-toolkit==0.5.3
+vot-trax==3.0.3

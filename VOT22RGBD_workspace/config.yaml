@@ -1,0 +1,4 @@
+registry:
+- ./trackers.ini
+- ./trackers.local.ini
+stack: vot2022/rgbd

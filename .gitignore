@@ -1,0 +1,37 @@
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.venv/
+venv/
+.DS_Store
+lib/train/admin/local.py
+lib/test/evaluation/local.py
+/checkpoints/
+/data/
+/logs/
+/pretrained/
+/raw_results/
+/tensorboard/
+/test/
+**/results/
+Depthtrack_workspace/analysis/
+VOT22RGBD_workspace/analysis/
+**/.cache/
+*.pth
+*.pt
+*.pth.tar
+
+# Local research records and release build output
+results.xlsx
+*.xlsx
+/dist/
+/outputs/
+
+# VOT datasets and local runtime files
+/Depthtrack_workspace/sequences
+/VOT22RGBD_workspace/sequences
+Depthtrack_workspace/logs/
+VOT22RGBD_workspace/logs/
+Depthtrack_workspace/trackers.local.ini
+VOT22RGBD_workspace/trackers.local.ini

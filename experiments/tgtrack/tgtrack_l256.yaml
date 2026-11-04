@@ -1,0 +1,140 @@
+# TGTrack evaluation parameters.
+DATA:
+  MAX_SAMPLE_INTERVAL: 400
+  MULTI_MODAL_LANGUAGE: true
+  MULTI_MODAL_VISION: true
+  MEAN:
+  - 0.485
+  - 0.456
+  - 0.406
+  SEARCH:
+    CENTER_JITTER: 3.5
+    FACTOR: 4.0
+    SCALE_JITTER: 0.5
+    SIZE: 256
+    NUMBER: 2
+  STD:
+  - 0.229
+  - 0.224
+  - 0.225
+  TEMPLATE:
+    CENTER_JITTER: 0
+    FACTOR: 2.0
+    SCALE_JITTER: 0
+    SIZE: 128
+    NUMBER: 5
+    SAMPLE_NUMBER: 6
+  TRAIN:
+    DATASETS_NAME:
+    - LASOT
+    - GOT10K_vottrain
+    - COCO17
+    - TRACKINGNET
+    - VASTTRACK
+    - TNL2K_train
+    - DepthTrack_train
+    - VisEvent
+    - LasHeR_train
+    DATASETS_RATIO:
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 2
+    - 2
+    - 2
+    SAMPLE_PER_EPOCH: 100000
+  USE_NLP:
+    TNL2K: true
+MODEL:
+  ENCODER:
+    TYPE: fastitpnl
+    STRIDE: 16
+    PRETRAIN_TYPE: pretrained/itpn/fast_itpn_large_1600e_1k.pt
+    PATCHEMBED_INIT: halfcopy
+    DROP_PATH: 0.1
+    TOKEN_TYPE_INDICATE: false
+    TEXT_INPUT_MODE: concat
+    CLASS_TOKEN: false
+    USE_TIME_TOKEN: true
+    LEARNABLE_THETA: true
+  TEXT_ENCODER:
+    TYPE: ViT-L/14
+  DECODER:
+    TYPE: CENTER
+    NUM_CHANNELS: 256
+    CONV_TYPE: normal
+    XAVIER_INIT: true
+  GENERATIVE_DECODER:
+    USE_GENERATIVE_DECODER: true
+    DIM: 768
+    DEPTH: 8
+    NUM_HEADS: 16
+  TASK_DECODER:
+    NUM_CHANNELS: 256
+    FEATURE_TYPE: average
+  TASK_NUM: 5
+  TASK_INDEX:
+    VASTTRACK: 0
+    LASOT: 0
+    TRACKINGNET: 0
+    GOT10K: 0
+    COCO: 0
+    TNL2K: 1
+    DEPTHTRACK: 2
+    LASHER: 3
+    VISEVENT: 4
+TEST:
+  EPOCH: 180
+  SEARCH_FACTOR: 4.0
+  SEARCH_SIZE: 256
+  TEMPLATE_FACTOR: 2.0
+  TEMPLATE_SIZE: 128
+  WINDOW: true
+  NUM_TEMPLATES: 5
+  UPDATE_INTERVALS:
+    LASOT: 40
+    LASOT_EXTENSION_SUBSET: 80
+    TRACKINGNET: 10
+    GOT10K_TEST: 8
+    TNL2K: 20
+    OTB99_LANG: 20
+    VISEVENT: 1
+    DEPTHTRACK: 25
+    VOTRGBD22: 1
+    LASHER: 1
+    RGBT234: 80
+  UPDATE_THRESHOLD:
+    LASOT: 0.75
+    LASOT_EXTENSION_SUBSET: 0.7
+    TRACKINGNET: 0.5
+    GOT10K_TEST: 0.55
+    TNL2K: 0.5
+    OTB99_LANG: 0.6
+    VISEVENT: 0.45
+    DEPTHTRACK: 0.9
+    VOTRGBD22: 0.45
+    LASHER: 0.45
+    RGBT234: 0.7
+  MB:
+    DEFAULT: 500
+    LASOT: 500
+    LASOT_EXTENSION_SUBSET: 500
+    TRACKINGNET: 200
+    GOT10K_TEST: 500
+    TNL2K: 500
+    OTB99_LANG: 500
+    VISEVENT: 500
+    DEPTHTRACK: 500
+    VOTRGBD22: 500
+    LASHER: 500
+    RGBT234: 500
+  MULTI_MODAL_VISION:
+    DEFAULT: true
+  MULTI_MODAL_LANGUAGE:
+    DEFAULT: true
+  USE_NLP:
+    DEFAULT: false
+    TNL2K: true
